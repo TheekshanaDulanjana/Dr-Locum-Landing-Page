@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@layer base {
+      .font-alata {
+    font-family: 'Alata', sans-serif;
+  }
+
+  html, body {
+  overflow-x: hidden;
+}
+
+}
