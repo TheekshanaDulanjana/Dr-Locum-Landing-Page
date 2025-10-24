@@ -25,14 +25,14 @@ const HeroSection = () => {
 
         {/* App Download Buttons */}
         <div className="mt-5 z-10 flex gap-3 flex-wrap justify-center">
-          <a href="https://theekshanadulanjana.me" target="_blank" rel="noopener noreferrer">
+          <a href="https://apps.apple.com/lk/app/instagram/id389801252" target="_blank" rel="noopener noreferrer">
             <img
               src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
               alt="App Store"
               className="h-8 sm:h-10 md:h-12 hover:scale-105 transition-transform"
             />
           </a>
-          <a href="https://theekshanadulanjana.me" target="_blank" rel="noopener noreferrer">
+          <a href="https://play.google.com/store/apps/details?id=com.instagram.android" target="_blank" rel="noopener noreferrer">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
               alt="Google Play"
@@ -41,24 +41,19 @@ const HeroSection = () => {
           </a>
         </div>
 
-        {/* Notifications */}
-        <NotificationComponent01 />
-        <NotificationComponent02 />
-
         {/* Mobile App Image */}
-        <img
+        <img 
           src={Mobile}
           alt="Mobile App"
-          className="absolute bottom-0 w-[300px] sm:w-[400px] md:w-[600px] lg:w-[800px] drop-shadow-xl"
+          className="absolute bottom-0 w-[500px]  sm:w-[400px] md:w-[600px] lg:w-[800px] drop-shadow-xl"
         />
       </section>
 
       {/* Additional Sections */}
       <LocumServicesComponents />
       <LocumCategoryComponents />
-      <div className="mt-16">
-        <BannerMessageComponent />
-      </div>
+      <BannerMessageComponent />
+      
     </div>
   );
 };

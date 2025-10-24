@@ -1,14 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 import Logo from "../assets/DrLocum.png";
 
 const Header = () => {
   const navigate = useNavigate();
-  const [showHeader, setShowHeader] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Detect scroll for compact header
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMenuOpen]);
 
   const scrollToSection = (id) => {
-    navigate("/"); 
+    navigate("/");
+    setIsMenuOpen(false);
     setTimeout(() => {
       const section = document.getElementById(id);
       if (section) {
@@ -17,76 +36,131 @@ const Header = () => {
     }, 100);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > 800 && currentScrollY > lastScrollY) {
-        // Scrolling down past 800px
-        setShowHeader(false);
-      } else {
-        // Scrolling up or less than 800px
-        setShowHeader(true);
-      }
-
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  const navItems = [
+    { id: "about", label: "About Us" },
+    { id: "features", label: "Features" },
+    { id: "faq", label: "FAQ" },
+    { id: "contact", label: "Contact" },
+  ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-3 px-4 flex items-center justify-between rounded-full max-w-6xl mx-auto mt-6 transition-transform duration-300 ${
-        showHeader ? "translate-y-0" : "-translate-y-full"
-      }`}
-    >
-      {/* Logo - acts as HOME */}
+    <>
+      {/* Header - hidden when mobile menu is open */}
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled ? "py-2" : "py-3"
+        } ${isMenuOpen ? "hidden lg:flex" : ""}`}
+      >
+        <div
+          className={`bg-white shadow-md rounded-full max-w-6xl mx-4 lg:mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between transition-all duration-300 ${
+            isScrolled ? "py-2" : "py-3"
+          }`}
+        >
+          {/* Logo */}
+          <div
+            className="flex items-center space-x-2 cursor-pointer z-50"
+            onClick={() => scrollToSection("home")}
+          >
+            <img
+              src={Logo}
+              alt="Locum Logo"
+              className={`w-auto transition-all duration-300 ${
+                isScrolled ? "h-6" : "h-7"
+              }`}
+            />
+          </div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex space-x-8 xl:space-x-10 text-black font-medium font-alata">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="hover:text-[#0FAEBF] cursor-pointer transition-colors duration-200 text-sm xl:text-base"
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
+
+          {/* Desktop Download Button */}
+          <button
+            onClick={() => scrollToSection("download")}
+            className="hidden lg:block bg-[#0FAEBF] font-alata text-white px-4 xl:px-6 py-2 rounded-full hover:scale-105 hover:bg-[#0d9bad] cursor-pointer transition-all duration-200 text-sm xl:text-base whitespace-nowrap"
+          >
+            Download
+          </button>
+
+          {/* Mobile Menu Button */}
+          <div className="flex lg:hidden items-center space-x-3">
+            <button
+              onClick={() => setIsMenuOpen(true)}
+              className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
+              aria-label="Open menu"
+            >
+              <Menu className="w-6 h-6 text-gray-700" />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Menu Overlay */}
       <div
-        className="flex items-center space-x-2 cursor-pointer"
-        onClick={() => scrollToSection("home")}
+        className={`fixed inset-0 bg-black/50 backdrop-blur-xs z-40 lg:hidden transition-opacity duration-300 ${
+          isMenuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setIsMenuOpen(false)}
+      />
+
+      {/* Mobile Menu Panel */}
+      <div
+        className={`fixed top-0 right-0 h-full w-72 sm:w-80 bg-white rounded-tl-4xl rounded-bl-4xl shadow-2xl z-50 lg:hidden transform transition-transform duration-300 ease-in-out ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
-        <img src={Logo} alt="Locum Logo" className="h-7 w-auto" />
+        <div className="flex flex-col h-full">
+          {/* Menu Header (Logo + Close Icon) */}
+          <div className="flex items-center justify-between p-6 border-b border-gray-200">
+            <img src={Logo} alt="Locum Logo" className="h-6 w-auto" />
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
+              aria-label="Close menu"
+            >
+              <X className="w-6 h-6 text-gray-700" />
+            </button>
+          </div>
+
+          {/* Menu Items */}
+          <nav className="flex-1 px-6 py-8">
+            <ul className="space-y-2">
+              {navItems.map((item) => (
+                <li key={item.id}>
+                  <button
+                    onClick={() => scrollToSection(item.id)}
+                    className="w-full text-left px-4 py-3 rounded-lg hover:bg-gray-100 hover:text-[#0FAEBF] transition-all duration-200 font-alata text-gray-700 text-base font-medium"
+                  >
+                    {item.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Menu Footer */}
+          <div className="p-6 border-t border-gray-200">
+            <button
+              onClick={() => scrollToSection("download")}
+              className="w-full bg-[#0FAEBF] font-alata text-white px-6 py-3 rounded-full hover:bg-[#0d9bad] transition-all duration-200 font-medium"
+            >
+              Download App
+            </button>
+          </div>
+        </div>
       </div>
-
-      {/* Navigation */}
-      <nav className="hidden font-alata md:flex space-x-10 text-black font-medium">
-        <button
-          onClick={() => scrollToSection("about")}
-          className="hover:text-[#0FAEBF] cursor-pointer transition"
-        >
-          About Us
-        </button>
-        <button
-          onClick={() => scrollToSection("features")}
-          className="hover:text-[#0FAEBF] cursor-pointer transition"
-        >
-          Features
-        </button>
-        <button
-          onClick={() => scrollToSection("faq")}
-          className="hover:text-[#0FAEBF] cursor-pointer transition"
-        >
-          FAQ
-        </button>
-        <button
-          onClick={() => scrollToSection("contact")}
-          className="hover:text-[#0FAEBF] cursor-pointer transition"
-        >
-          Contact
-        </button>
-      </nav>
-
-      {/* Download Button */}
-      <button
-        onClick={() => scrollToSection("download")}
-        className="bg-[#0FAEBF] w-35 font-alata text-white px-4 py-2 rounded-full hover:scale-105 cursor-pointer transition"
-      >
-        Download
-      </button>
-    </header>
+    </>
   );
 };
 
