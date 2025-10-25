@@ -2,7 +2,7 @@ import React from "react";
 
 const TermsOfUse = () => {
   return (
-    <section className="min-h-screen bg-gradient-to-tr from-[#64e9f8] to-white font-[Alata] text-[#000000] py-16 px-6 md:px-12 lg:px-20 flex justify-center">
+    <section className="min-h-screen bg-gradient-to-tr from-[#9bf5ff] to-white font-[Alata] text-[#000000] py-16 px-6 md:px-12 lg:px-20 flex justify-center">
       <div className="w-full max-w-6xl">
         {/* Header */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl mb-5 mt-16 md:mt-20 text-center md:text-left">
