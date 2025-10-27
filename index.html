@@ -1,78 +1,75 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Basic Meta -->
+    <!-- Basic Meta Tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dr Locum | Connecting Healthcare Professionals with Opportunities</title>
+    <title>Dr Locum - Your Digital Healthcare Assistant</title>
+    <meta name="description" content="Dr Locum is your trusted digital healthcare assistant. Easily book appointments, consult doctors online, and manage your medical records securely in one place.">
+    <meta name="keywords" content="Dr Locum, digital healthcare, online doctor, medical consultation, healthcare app, Sri Lanka health app, online appointments, telemedicine, health record management" />
+    <meta name="author" content="Dr Locum Team" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourwebsiteurl.com/" />
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/tittlelogo.png" />
 
+    <!-- Theme Color (for mobile browsers) -->
+    <meta name="theme-color" content="#0077b6" />
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
 
-    <!-- Primary SEO Meta Tags -->
-    <meta name="title" content="Dr Locum | Connecting Healthcare Professionals with Opportunities" />
-    <meta
-      name="description"
-      content="Dr Locum is a digital platform designed to connect healthcare professionals with hospitals, clinics, and locum opportunities across Sri Lanka. Streamline hiring, scheduling, and professional networking with ease."
-    />
-    <meta
-      name="keywords"
-      content="Dr Locum, locum doctors, healthcare jobs, hospital staffing, doctor booking, medical platform, Sri Lanka healthcare, medical recruitment, online locum, healthcare professionals"
-    />
-    <meta name="author" content="Dr Locum Team" />
-    <meta name="robots" content="index, follow" />
-    <meta name="language" content="English" />
-    <meta name="revisit-after" content="7 days" />
-
-    <!-- Open Graph (Facebook / LinkedIn / WhatsApp) -->
+    <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://drlocumwebsitelink/" />
-    <meta property="og:title" content="Dr Locum | Connecting Healthcare Professionals with Opportunities" />
-    <meta
-      property="og:description"
-      content="Find trusted locum doctors and healthcare professionals across Sri Lanka with Dr Locum — your complete digital staffing solution."
-    />
-    <meta property="og:image" content="https://drlocumwebsitelink//BannerImage.png" />
-    <meta property="og:image:alt" content="Dr Locum platform banner" />
+    <meta property="og:url" content="https://yourwebsiteurl.com/" />
+    <meta property="og:title" content="Dr Locum - Your Digital Healthcare Assistant" />
+    <meta property="og:description" content="Book appointments, consult doctors online, and manage your health with ease through Dr Locum." />
+    <meta property="og:image" content="/BannerImage.png" />
     <meta property="og:site_name" content="Dr Locum" />
 
-    <!-- Twitter Card (for X / Twitter sharing) -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://drlocumwebsitelink/" />
-    <meta name="twitter:title" content="Dr Locum | Connecting Healthcare Professionals with Opportunities" />
-    <meta
-      name="twitter:description"
-      content="Discover locum opportunities and healthcare staffing solutions across Sri Lanka with Dr Locum."
-    />
-    <meta name="twitter:image" content="https://drlocumwebsitelink//BannerImage.png" />
+    <meta name="twitter:url" content="https://yourwebsiteurl.com/" />
+    <meta name="twitter:title" content="Dr Locum - Your Digital Healthcare Assistant" />
+    <meta name="twitter:description" content="Book appointments, consult doctors online, and manage your health with ease through Dr Locum." />
+    <meta name="twitter:image" content="/BannerImage.png" />
 
-    <!-- Theme Color (Mobile Browsers) -->
-    <meta name="theme-color" content="#0FAEBF" />
-
-    <!-- Structured Data (JSON-LD for Google Search Rich Results) -->
+    <!-- Schema.org Structured Data (JSON-LD for Google) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
+        "@type": "WebSite",
         "name": "Dr Locum",
-        "url": "https://drlocumwebsitelink/",
-        "logo": "https://drlocumwebsitelink/tittlelogo.png",
-        "sameAs": [
-          "https://www.facebook.com/DrLocumLK",
-          "https://www.linkedin.com/company/dr-locum",
-          "https://www.instagram.com/drlocum.lk"
-        ],
-        "description": "Dr Locum is a Sri Lankan digital platform connecting healthcare professionals with hospitals and clinics for locum opportunities.",
-        "foundingDate": "2025",
-        "founders": [{ "@type": "Person", "name": "Dr Locum Team" }]
+        "url": "https://yourwebsiteurl.com/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://yourwebsiteurl.com/search?query={search_term_string}",
+          "query-input": "required name=search_term_string"
+        },
+        "description": "Dr Locum is your trusted digital healthcare assistant, enabling users to book appointments, consult doctors, and manage medical records.",
+        "image": "https://yourwebsiteurl.com/BannerImage.png",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Dr Locum",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://yourwebsiteurl.com/tittlelogo.png"
+          }
+        }
       }
     </script>
   </head>
-  <body>
+
+  <body style="margin: 0; font-family: 'Alata', sans-serif;">
+    <!-- ✅ React Root -->
     <div id="root"></div>
+
+    <!-- Main Script -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
