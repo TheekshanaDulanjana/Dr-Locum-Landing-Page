@@ -1,4 +1,4 @@
-import Watermark from "../assets/Watermark.png";
+import Watermark from "../assets/watermark.png";
 import Seeker from "../assets/Seeker.png";
 import ProviderGroup from "../assets/ProviderGroup.png";
 
