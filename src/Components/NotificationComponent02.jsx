@@ -20,7 +20,7 @@ const NotificationComponent = () => {
 
   return (
     <div className="absolute bottom-40 left-20 w-96 bg-white/30 backdrop-blur-xs shadow-lg rounded-2xl border border-gray-200 p-3 font-[Alata]">
-      {/* Top Row: Logo, Alert, Time */}
+      {/* Top Row*/}
       <div className="flex items-center justify-between mb-1">
         <div className="flex items-center space-x-2">
           <img src={DrLocumLogo} alt="DrLocum" className="h-4 w-auto" />
