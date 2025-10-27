@@ -8,6 +8,7 @@ import FAQ from "./Pages/FAQ";
 import Features from "./Pages/Features";
 import Contact from "./Pages/Contact";
 import TermsofUse from "./Pages/TermsofUse";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import NotFound from "./Pages/NotFound";
 
 import Header from "./Components/Header";
@@ -65,6 +66,7 @@ const MainApp = () => {
             </>
           }
         />
+        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         <Route path="/termsofuse" element={<TermsofUse />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

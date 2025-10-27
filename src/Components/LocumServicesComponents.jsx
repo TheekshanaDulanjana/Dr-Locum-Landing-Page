@@ -3,7 +3,7 @@ import LocumSeeker from "../assets/LocumSeeker.jpg";
 
 export default function LocumServicesComponents() {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 py-16 font-[Alata] flex flex-col justify-center min-h-screen">
+    <section className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 py-16 font-[Alata] flex flex-col justify-center min-h-[auto]">
       {/* Section Header */}
       <div className="mb-10 sm:mb-12">
         <div className="flex items-center gap-2">

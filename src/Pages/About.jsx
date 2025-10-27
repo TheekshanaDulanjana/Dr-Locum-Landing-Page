@@ -6,7 +6,7 @@ import Abt03Icon from "../assets/Abt03Icon.png";
 
 export default function AboutSection() {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 py-16 font-[Alata] flex flex-col justify-center min-h-screen">
+    <section className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 py-16 font-[Alata] flex flex-col justify-center min-h-[auto]">
 
       {/* Header */}
       <div className="mb-10">
@@ -17,8 +17,8 @@ export default function AboutSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 -mt-5 md:gap-10">
           <h1 className="text-3xl lg:text-4xl leading-snug lg:col-span-2">
-            <span className="text-[#0FAEBF]">Introduction</span> To Best Locum <br />
-            Provider in Sri Lanka!
+            Introduction To Best <br />
+            <span className="text-[#0FAEBF]"> Locum Provider </span> in Sri Lanka!
           </h1>
 
           <p className="text-[#555555] text-justify md:col-span-1">
@@ -39,7 +39,7 @@ export default function AboutSection() {
         <img
           src={aboutbanner}
           alt="Doctor Banner"
-          className="rounded-xl w-full h-80 sm:h-96 object-cover"
+          className="rounded-xl w-full h-80 sm:h-86 object-cover"
         />
 
         {/* Right Cards */}

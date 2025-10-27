@@ -30,7 +30,7 @@ export default function BannerMessageComponent() {
 
         {/* Center Text */}
         <div className="z-10 px-4 md:px-0 text-center">
-          <h1 className="text-xl sm:text-2xl md:text-3xl text-white leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl md:mr-50 text-white leading-tight">
             Where Locum Seekers Meet <br className="hidden sm:block" /> The
             Right Providers.
           </h1>

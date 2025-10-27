@@ -1,24 +1,50 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import emailjs from "emailjs-com";
 import { FaPhone, FaEnvelope, FaLink, FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa";
 
 const ContactPage = () => {
   const form = useRef();
   const [modal, setModal] = useState({ show: false, message: "" });
+  const [formValid, setFormValid] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    mobile: "",
+    email: "",
+    message: "",
+  });
+
+  // ✅ check form validity
+  useEffect(() => {
+    const isValid = Object.values(formData).every((value) => value.trim() !== "");
+    setFormValid(isValid);
+  }, [formData]);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-emailjs.sendForm(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-      form.current,
-      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-    )
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        form.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
       .then(
         () => {
           setModal({ show: true, message: "Message sent successfully!" });
           form.current.reset();
+          setFormData({
+            firstName: "",
+            lastName: "",
+            mobile: "",
+            email: "",
+            message: "",
+          });
         },
         (error) => {
           setModal({ show: true, message: `Failed to send message: ${error.message}` });
@@ -107,6 +133,8 @@ emailjs.sendForm(
               placeholder="First Name"
               className="flex-1 p-3 rounded-lg bg-gray-200 outline-none"
               required
+              value={formData.firstName}
+              onChange={handleChange}
             />
             <input
               type="text"
@@ -114,6 +142,8 @@ emailjs.sendForm(
               placeholder="Last Name"
               className="flex-1 p-3 rounded-lg bg-gray-200 outline-none"
               required
+              value={formData.lastName}
+              onChange={handleChange}
             />
           </div>
           <div className="flex flex-col sm:flex-row gap-4 mt-4">
@@ -123,6 +153,8 @@ emailjs.sendForm(
               placeholder="Mobile"
               className="flex-1 p-3 rounded-lg bg-gray-200 outline-none"
               required
+              value={formData.mobile}
+              onChange={handleChange}
             />
             <input
               type="email"
@@ -130,6 +162,8 @@ emailjs.sendForm(
               placeholder="Email"
               className="flex-1 p-3 rounded-lg bg-gray-200 outline-none"
               required
+              value={formData.email}
+              onChange={handleChange}
             />
           </div>
           <textarea
@@ -137,10 +171,17 @@ emailjs.sendForm(
             placeholder="Message"
             className="w-full p-3 mt-4 rounded-lg bg-gray-200 outline-none h-32 resize-none"
             required
+            value={formData.message}
+            onChange={handleChange}
           ></textarea>
+
+          {/*Button active/inactive logic */}
           <button
             type="submit"
-            className="bg-[#555555] cursor-pointer mt-4 mb-5 text-white py-3 rounded-lg hover:bg-[#0FAEBF] transition-all"
+            disabled={!formValid}
+            className={`cursor-pointer mt-4 mb-5 text-white py-3 rounded-lg transition-all ${
+              formValid ? "bg-[#0FAEBF] hover:bg-[#03c5db]" : "bg-[#555555] opacity-70 cursor-not-allowed"
+            }`}
           >
             Send Message
           </button>
