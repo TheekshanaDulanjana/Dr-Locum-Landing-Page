@@ -40,10 +40,10 @@ const Footer = () => {
               <li className="flex items-center justify-center md:justify-start gap-2">
                 <FaEnvelope className="text-[#0FAEBF]" />
                 <a
-                  href="mailto:travelmolanka@gmail.com"
+                  href="mailto:info@drlocum.club"
                   className="hover:text-[#0FAEBF] transition-colors"
                 >
-                  travelmolanka@gmail.com
+                  info@drlocum.club
                 </a>
               </li>
               <li className="flex items-start justify-center md:justify-start gap-2">
