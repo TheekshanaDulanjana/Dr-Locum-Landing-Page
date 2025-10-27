@@ -1,6 +1,6 @@
 import Watermark from "../assets/watermark.png";
-import Seeker from "../assets/Seeker.png";
-import ProviderGroup from "../assets/ProviderGroup.png";
+import Seeker from "../assets/seeker.png";
+import ProviderGroup from "../assets/providerGroup.png";
 
 export default function BannerMessageComponent() {
   return (
