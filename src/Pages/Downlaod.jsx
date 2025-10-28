@@ -2,7 +2,7 @@ import React from "react";
 
 const Download = () => {
   return (
-    <section className="flex flex-col items-center justify-center text-center py-16 px-6 mt-20 font-[Alata]">
+    <section className="flex flex-col items-center justify-center text-center py-4 md:py-16 px-6 mt-10 md:mt-20 font-[Alata]">
       {/* Heading */}
       <h1 className="text-3xl md:text-5xl text-black">
         Start Your <span className="text-[#0FAEBF]">Locum</span> Journey Today.

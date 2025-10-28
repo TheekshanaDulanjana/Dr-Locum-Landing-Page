@@ -55,7 +55,7 @@ const ContactPage = () => {
   const closeModal = () => setModal({ show: false, message: "" });
 
   return (
-    <div className="flex flex-col lg:flex-row max-w-7xl mx-auto p-6 sm:p-10 md:p-16 font-[Alata] text-[#555555] gap-10">
+    <div className="flex flex-col lg:flex-row max-w-7xl mx-auto p-6 sm:p-10 md:p-16  py-4 md:py-16 font-[Alata] text-[#555555] gap-10">
       {/* Left Section */}
       <div className="flex-1 flex flex-col gap-6">
         <div className="text-start">

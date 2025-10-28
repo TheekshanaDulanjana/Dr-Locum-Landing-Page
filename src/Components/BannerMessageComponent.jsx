@@ -4,7 +4,7 @@ import ProviderGroup from "../assets/providerGroup.png";
 
 export default function BannerMessageComponent() {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 py-16 font-[Alata] flex flex-col justify-center">
+    <section className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 py-4 md:py-16 font-[Alata] flex flex-col justify-center">
       <div className="relative flex items-center justify-center h-[260px] sm:h-[300px] md:h-[340px] bg-[#0FAEBF] rounded-2xl overflow-hidden">
         
         {/* Watermark */}

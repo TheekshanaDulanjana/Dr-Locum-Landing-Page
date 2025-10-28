@@ -32,7 +32,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 py-16 font-[Alata]">
+    <section className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 py-4 md:py-16 font-[Alata]">
       {/* Section Header */}
       <div className="mb-10 sm:mb-12">
         <div className="flex items-center gap-2 mb-2">

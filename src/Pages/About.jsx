@@ -6,7 +6,7 @@ import Abt03Icon from "../assets/Abt03Icon.png";
 
 export default function AboutSection() {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 py-16 font-[Alata] flex flex-col justify-center min-h-[auto]">
+    <section className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 py-4 md:py-16 font-[Alata] flex flex-col justify-center min-h-[auto]">
 
       {/* Header */}
       <div className="mb-10">
