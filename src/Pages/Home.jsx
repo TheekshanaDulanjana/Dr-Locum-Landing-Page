@@ -11,7 +11,7 @@ const HeroSection = () => {
   return (
     <div className="overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative flex w-full min-h-[600px] md:h-[700px] flex-col items-center justify-center text-center bg-gradient-to-tr from-[#0FAEBF] to-[#FFFFFF] overflow-hidden px-4">
+      <section className="relative flex w-full min-h-[600px] md:h-screen flex-col items-center justify-center text-center bg-gradient-to-tr from-[#0FAEBF] to-[#FFFFFF] overflow-hidden px-4">
         {/* Main Heading */}
         <h1 className="text-2xl sm:text-3xl md:text-5xl font-alata  text-black leading-tight z-10 -mt-45">
           Your Trusted Partner for the <br className="hidden md:block" />
